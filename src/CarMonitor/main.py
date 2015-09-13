@@ -1,3 +1,4 @@
+__author__ = 'alexjch'
 import sys
 import signal
 import argparse

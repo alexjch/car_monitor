@@ -1,3 +1,4 @@
+__author__ = 'alexjch'
 import signal
 import bluetooth as bt
 from find_device import find_device
@@ -31,27 +32,5 @@ class BTAgent(object):
     def __del__(self):
         self.close()
 
-#
-# X-Move input text code outside BTAgent
-# X-Write reader thread code
-# -Write DB 
-# -Test ODBII
-#
-
-if __name__ == "__main__":
-#    address = find_device("RN42-B961")
-#    address = "00:06:66:45:B9:61" 
-    address = "00:1D:A5:00:11:62" #ODBII
-    bt = BTAgent(address)
-    def sigint_handler(signal, frame):
-        bt.close()
-        print("\n")
-        exit(0)
-    signal.signal(signal.SIGINT, sigint_handler)
-    while True:
-        msg = raw_input("btagent# ")
-        bt.send(msg)
-        print "received: "
-        print bt.receive()
 
 
