@@ -14,16 +14,15 @@ class BTAgent(object):
 
     def receive(self):
         chunks = []
-        recv_count = 0
-        while recv_count < BUFF_SIZE:
+        receiving = 1
+        while receiving:
             chunk = self.sock.recv(BUFF_SIZE)        
-            print chunk
-            chunks.append(chunk)
-            recv_count = recv_count + len(chunks)
-        return "".join(chunks)
+            chunks.append(chunk.replace("\r", "\n"))
+            if chr(62) in chunk:
+                return "".join(chunks)
 
     def send(self, msg):
-        msg = "{}\n".format(msg)
+        msg = "{}{}".format(msg, chr(13))
         return self.sock.send(msg)
 
     def close(self):
