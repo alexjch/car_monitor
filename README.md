@@ -8,7 +8,8 @@ ODB protocol, etc.  This allowed me to simulate the ODB connector without having
 (since I did not want to have my car on run for an extended period of time)
 
 References:
-- [ELM327 datasheet / ELMElectronics \(R\)](http://elmelectronics.com/DSheets/ELM327DS.pdf)
-- [Sparkfun ODB Hookup guide](https://learn.sparkfun.com/tutorials/obd-ii-uart-hookup-guide)
+- [ELM327 datasheet](http://elmelectronics.com/DSheets/ELM327DS.pdf) / ELMElectronics \(R\)
+- Sparkfun [ODB Hookup guide](https://learn.sparkfun.com/tutorials/obd-ii-uart-hookup-guide)
+- Sparkfun [RN-42 based module](https://www.sparkfun.com/products/12576)  
 - [An Introduction to Bluetooth Programming](http://people.csail.mit.edu/albert/bluez-intro)
-- [How to enable bluetooth on boot](http://rwx.io/blog/2015/02/18/seting-up-an-edison/)
+- How to [enable bluetooth on boot](http://rwx.io/blog/2015/02/18/seting-up-an-edison/)

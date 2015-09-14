@@ -1,9 +1,16 @@
 __author__ = 'alexjch'
 import signal
-import bluetooth as bt
-from find_device import find_device
+try:
+    import bluetooth as bt
+except:
+    pass
 
 BUFF_SIZE = 1024
+
+def find_device(device_name):
+    discovered = bt.discover_devices()
+    target = [d for d in discovered if bt.lookup_name(d) == device_name]
+    return target.pop() if len(target) else None
 
 
 class BTAgent(object):
