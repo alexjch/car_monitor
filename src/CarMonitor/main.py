@@ -20,6 +20,7 @@ def arguments_parser():
     op_mode_group.add_argument("-F", "--parameters_file", default=None,
                                help="File with a list of parameters to read from vehicle")
     ap.add_argument("-C", "--continuous", default=False, action="store_true", help="Do it until CTRL^C", type=int)
+    ap.add_argument("-D", "--data_base", default="odb")
 
     return ap.parse_args()
 
@@ -42,17 +43,20 @@ def parameters_file(file_name, bt):
         parameters = filter(lambda x: x != "", input.read().split("\n"))
         for parameter in parameters:
             bt.send(parameter)
-            print("received: {}".format(bt.receive()))
+            yield bt.receive()
 
 
 def continuous_parameters_file(file_name, bt):
     while True:
-        parameters_file(file_name, bt)
-        time.sleep(SLEEP_TIME)
+        for _ in parameters_file(file_name, bt):
+            print _
+            time.sleep(SLEEP_TIME)
 
 
 def main(args):
-    address = args.device_addr if args.device_addr is not None else find_device(args.device_name)
+    address = args.device_addr \
+        if args.device_addr is not None else find_device(args.device_name)
+
     bt = bta(address)
 
     if args.interactive:

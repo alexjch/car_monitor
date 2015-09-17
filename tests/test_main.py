@@ -28,8 +28,8 @@ class TestCaseMain(unittest.TestCase):
         os.unlink(CODES_FILE)
 
     def test_filter_empty_lines(self):
-        parameters_file(CODES_FILE, btmock)
-        self.assertTrue(btmock.send.call_count, 3)
+        for _ in parameters_file(CODES_FILE, btmock):
+            self.assertTrue(btmock.send.call_count, 3)
 
 
 if __name__ == '__main__':
