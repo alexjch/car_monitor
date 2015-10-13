@@ -19,6 +19,9 @@ def arguments_parser():
                                device")
     op_mode_group.add_argument("-F", "--parameters_file", default=None,
                                help="File with a list of parameters to read from vehicle")
+    op_mode_group.add_argument("-L", "--listening", default=False,
+                               help="Puts the LM327 in listening mode to monitor traffic on \
+                               the can bus")
     ap.add_argument("-C", "--continuous", default=False, action="store_true", help="Do it until CTRL^C", type=int)
     ap.add_argument("-D", "--data_base", default="odb")
 
@@ -53,6 +56,10 @@ def continuous_parameters_file(file_name, bt):
             time.sleep(SLEEP_TIME)
 
 
+def monitor_bus(bt):
+   pass
+
+
 def main(args):
     address = args.device_addr \
         if args.device_addr is not None else find_device(args.device_name)
@@ -65,6 +72,8 @@ def main(args):
         continuous_parameters_file(args.parameters_file, bt)
     elif args.parameters_file:
         parameters_file(args.parameters_file, bt)
+    elif args.listening_mode:
+        monitor_bus(bt)
 
 if __name__ == "__main__":
     main(arguments_parser())

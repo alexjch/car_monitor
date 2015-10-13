@@ -14,6 +14,10 @@ def find_device(device_name):
 
 
 class BTAgent(object):
+    """ Bluetooth agent, this object asbtracts communication with
+        a bluetooth device.  This object is in charge of channel
+        initialization and provides methods to send and receive
+        data"""
 
     def __init__(self, dev_address, port=1):
         object.__init__(self)
