@@ -5,7 +5,7 @@ Code to talk to ODBII bluetooth module based on ELM327 chip.
 
 I used a RN42 on SPP profile + a FTDI board to get starting on this project since I did not know much about ODB, 
 ODB protocol, etc.  This allowed me to simulate the ODB connector without having to experiment on the real thing
-(since I did not want to have my car on run for an extended period of time)
+(since I did not want to have my car running idle for an extended period of time)
 
 References:
 - [ELM327 datasheet](http://elmelectronics.com/DSheets/ELM327DS.pdf) / ELMElectronics \(R\)
