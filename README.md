@@ -13,3 +13,4 @@ References:
 - Sparkfun [RN-42 based module](https://www.sparkfun.com/products/12576)  
 - [An Introduction to Bluetooth Programming](http://people.csail.mit.edu/albert/bluez-intro)
 - How to [enable bluetooth on boot](http://rwx.io/blog/2015/02/18/seting-up-an-edison/)
+- Edison Bluetooth [guide](http://download.intel.com/support/edison/sb/edisonbluetooth_331704004.pdf) 
